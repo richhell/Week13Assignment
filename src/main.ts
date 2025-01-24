@@ -1,8 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 //Books 
 
-const booksContainer = document.getElementById("books-container") as HTMLDivElement
-
 type BookObject = {
     id: number
     title: string
@@ -14,13 +12,15 @@ async function onFetchBooksClick() {
     const response = await fetch("http://localhost:3000/books")
     const bookList = await response.json()
 
-    booksContainer.innerHTML = bookList.map(
-        function list(book: BookObject) {`<div class="bg-light rounded mt-5">
+    const booksHtml = bookList.map((book: BookObject) => {
+        return `<div class="bg-light rounded mt-5">
             <h3>${book.title}</h3>
-            <p>${book.genreId}</p>
+            <p> ${book.genreId}</p>
         </div>`
-        }
-    ).join("")
+    }).join("")
+
+    const booksContainer = document.getElementById("books-container") as HTMLDivElement
+    booksContainer.innerHTML = booksHtml
 }
 
 let lastCreatedItem: null | BookObject = null
