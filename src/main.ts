@@ -103,8 +103,6 @@ createBookButton.addEventListener("click", onCreateBookClick)
 const deleteBookButton = document.getElementById("delete-book-button") as HTMLButtonElement
 deleteBookButton.addEventListener("click", onDeleteBookClick)
 
-
-
 // Add the event listener for the fetch-genres-button
 const fetchGenresButton = document.getElementById("fetch-genres-button") as HTMLButtonElement
 fetchGenresButton.addEventListener("click", onFetchGenresClick)
